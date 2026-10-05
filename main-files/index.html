@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowora - Next-Gen AI Platform Template</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Production-ready AI SaaS Landing Page Template built for ThemeForest.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+    @theme {
+      --font-sans: "Inter", sans-serif;
+      --font-heading: "Manrope", sans-serif;
+    }
+    @layer base {
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading);
+      }
+    }
+  </style>
+
+  <!-- Prevent Dark/Light Flash on Page Load -->
+  <script>
+    if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-6 h-[70px] flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+        <span><span class="text-3xl text-indigo-600 dark:text-indigo-400">F</span>lowora</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#home" class="nav-scroll-link text-indigo-600 dark:text-indigo-400 font-semibold transition-colors">Home</a>
+        <a href="#features" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Features</a>
+        <a href="#pricing" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Pricing</a>
+        <a href="#faq" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">FAQ</a>
+        <a href="#blog" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Blog</a>
+
+        <!-- Pages Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-indigo-600 dark:hover:text-white transition-colors cursor-pointer">
+            Pages <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+          </button>
+          <!-- Dropdown menu -->
+          <div class="absolute top-full left-0 mt-4 w-44 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
+            <a href="404.html" class="block px-4 py-2.5 text-sm hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">404 Page</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Buttons & Theme Switcher -->
+      <div class="flex items-center gap-3">
+        <!-- Light / Dark Mode Toggle Button -->
+        <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors cursor-pointer">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <a href="#pricing" class="hidden sm:inline-flex items-center justify-center px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm transition-colors">
+          Get Started
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="absolute top-[70px] left-0 w-full bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 hidden flex-col shadow-lg md:hidden">
+      <nav class="flex flex-col px-6 py-6 gap-4 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#home" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Home</a>
+        <a href="#features" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Features</a>
+        <a href="#pricing" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Pricing</a>
+        <a href="#faq" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">FAQ</a>
+        <a href="#blog" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Blog</a>
+        <a href="404.html" class="hover:text-indigo-600 dark:hover:text-white transition-colors">404 Page</a>
+        <a href="#contact" class="nav-scroll-link hover:text-indigo-600 dark:hover:text-white transition-colors">Contact</a>
+        <div class="pt-4 mt-2 border-t border-slate-100 dark:border-slate-800">
+          <a href="#pricing" class="flex items-center justify-center w-full px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm transition-colors">
+            Get Started
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-[70px]">
+    <!-- ================= STEP 2: HERO SECTION ================= -->
+    <section id="home" class="relative pt-24 pb-16 md:pt-24 md:pb-16 overflow-hidden bg-white dark:bg-slate-950">
+      
+      <!-- Glow Accent -->
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/10 dark:bg-indigo-500/15 blur-[120px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-500/15 blur-[120px] rounded-full pointer-events-none -z-10 -translate-x-1/3 translate-y-1/3"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Content -->
+          <div class="lg:col-span-5 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
+            <!-- Announcement Pill Badge -->
+            <div id="hero-badge" class="inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+              <span>AI-Powered Workflow Automation</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 id="hero-heading" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.2] mb-5">
+              <span class="inline-block hero-word">Turn</span> <span class="inline-block hero-word">repetitive</span> <span class="inline-block hero-word">work</span> <span class="inline-block hero-word">into</span> <span class="inline-block hero-word">intelligent</span> <span class="inline-block hero-word">workflows</span> 
+              <span class="relative inline-block text-indigo-600 dark:text-indigo-500 hero-word">
+                with AI.
+                <span class="absolute -bottom-1 left-0 w-[105%] h-3 border-b-[4px] border-indigo-600 dark:border-indigo-500 rounded-[100%] rotate-[-2deg]"></span>
+              </span>
+            </h1>
+
+            <!-- Subheading -->
+            <p id="hero-subheading" class="text-base text-slate-600 dark:text-slate-400 mb-8 leading-relaxed pr-0 lg:pr-4">
+              Build intelligent workflows that connect your tools, automate repetitive tasks, and keep your team moving — without complex setup or code.
+            </p>
+
+            <!-- CTAs -->
+            <div id="hero-ctas" class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-6">
+              <a href="#pricing" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm transition-colors text-center">
+                Start Free Trial
+              </a>
+              <a href="#contact" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 border border-indigo-600 dark:border-indigo-500 text-slate-700 dark:text-slate-200 font-medium text-sm transition-colors flex items-center justify-center gap-2">
+                <i data-lucide="play" class="w-4 h-4 text-indigo-600 dark:text-indigo-400 fill-current"></i>
+                <span>Explore Demo</span>
+              </a>
+            </div>
+            
+            <!-- Checkmarks -->
+            <div id="hero-checks" class="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-[13px] text-slate-500 dark:text-slate-400">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400"></i>
+                <span>No credit card required</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400"></i>
+                <span>14-day free trial</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400"></i>
+                <span>Cancel anytime</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content: Dashboard Mockup Container -->
+          <div id="hero-image" class="lg:col-span-7 relative w-full shrink-0 z-20 mt-12 lg:mt-0">
+            
+            <!-- Glass Backplate -->
+            <div class="absolute inset-0 -m-4 bg-slate-100/60 dark:bg-slate-800/40 backdrop-blur-3xl border border-white/60 dark:border-slate-700/50 rounded-[2rem] shadow-2xl -z-10"></div>
+
+            <!-- Main Dashboard Mockup Inner -->
+            <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden flex relative h-[450px] sm:h-[500px]">
+            
+            <!-- Sidebar -->
+            <div class="w-40 lg:w-48 bg-slate-50/50 dark:bg-slate-900/50 border-r border-slate-100 dark:border-slate-800 p-4 hidden md:flex flex-col gap-6 shrink-0">
+              
+              <!-- Mac Buttons -->
+              <div class="flex items-center gap-1.5 px-2 mb-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-rose-500 border border-rose-600/20"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-500/20"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 border border-emerald-600/20"></div>
+              </div>
+
+              <!-- Logo -->
+              <div class="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-lg px-2 mb-2">
+                 <span><span class="text-3xl text-indigo-600 dark:text-indigo-400">F</span>lowora</span>
+              </div>
+              
+              <!-- Nav -->
+              <nav class="flex flex-col gap-1">
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-sm font-semibold">
+                  <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
+                </a>
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors">
+                  <i data-lucide="cpu" class="w-4 h-4 text-slate-400"></i> AI Agents
+                </a>
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors">
+                  <i data-lucide="git-merge" class="w-4 h-4 text-slate-400"></i> Workflows
+                </a>
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors">
+                  <i data-lucide="bar-chart-2" class="w-4 h-4 text-slate-400"></i> Analytics
+                </a>
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors">
+                  <i data-lucide="layers" class="w-4 h-4 text-slate-400"></i> Integrations
+                </a>
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors">
+                  <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i> Templates
+                </a>
+                <a href="javascript:void(0)" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm font-medium transition-colors mt-4">
+                  <i data-lucide="settings" class="w-4 h-4 text-slate-400"></i> Settings
+                </a>
+              </nav>
+            </div>
+
+            <!-- Main Dashboard Area -->
+            <div class="flex-1 p-4 lg:p-5 flex flex-col gap-4 lg:gap-5 bg-white dark:bg-slate-900 min-w-0 overflow-hidden relative">
+              
+              <!-- Subtle dot pattern background -->
+              <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-30 pointer-events-none"></div>
+
+              <!-- Header -->
+              <div class="flex items-center justify-between gap-4 relative z-10">
+                <h2 class="text-xl lg:text-2xl font-bold text-slate-800 dark:text-white">Dashboard</h2>
+                <div class="flex items-center gap-3">
+                  <button class="px-3 py-1.5 rounded-full border border-indigo-100 dark:border-indigo-900 bg-indigo-50/50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-xs font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/40 transition-colors">Upgrade</button>
+                  <div class="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700">
+                    <img src="https://ui-avatars.com/api/?name=Alex&background=random" alt="Avatar" class="w-full h-full object-cover">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stats Cards -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10">
+                <!-- Card 1 -->
+                <div class="p-4 lg:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3 lg:mb-4">Total Workflows</span>
+                  <div class="flex items-end justify-between">
+                    <span class="text-2xl font-bold text-slate-800 dark:text-white">134</span>
+                    <span class="text-[10px] font-bold text-emerald-500">+12%</span>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-4 lg:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3 lg:mb-4">Tasks Executed</span>
+                  <div class="flex items-end justify-between">
+                    <span class="text-2xl font-bold text-slate-800 dark:text-white">8.2K</span>
+                    <span class="text-[10px] font-bold text-emerald-500">+18%</span>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-4 lg:p-5 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow hidden sm:flex">
+                  <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3 lg:mb-4">Success Rate</span>
+                  <div class="flex items-end justify-between">
+                    <span class="text-2xl font-bold text-slate-800 dark:text-white">98.6%</span>
+                    <span class="text-[10px] font-bold text-emerald-500">+2.4%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lower Section -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1 min-h-0 relative z-10">
+                <!-- Graph -->
+                <div class="sm:col-span-2 p-5 lg:p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col min-h-0 relative">
+                  <span class="text-sm font-bold text-slate-800 dark:text-white mb-6">Workflow Activity</span>
+                  
+                  <div class="flex-1 relative w-full flex items-end">
+                    <!-- Y Axis Labels -->
+                    <div class="absolute left-0 top-0 h-full flex flex-col justify-between text-[8px] text-slate-300 dark:text-slate-600 font-medium pb-2">
+                      <span>800</span>
+                      <span>500</span>
+                      <span>200</span>
+                    </div>
+                    
+                    <div class="ml-6 w-full h-full relative">
+                       <!-- Fake Graph using SVG with smooth curve -->
+                      <svg viewBox="0 0 100 40" class="w-full h-full preserve-3d" preserveAspectRatio="none">
+                        <defs>
+                          <linearGradient id="curveGradient" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.3"></stop>
+                            <stop offset="100%" stop-color="#818cf8" stop-opacity="0"></stop>
+                          </linearGradient>
+                        </defs>
+                        <!-- Grid lines -->
+                        <line x1="0" y1="0" x2="100" y2="0" stroke="currentColor" class="text-slate-100 dark:text-slate-800" stroke-width="0.5" stroke-dasharray="1 1"></line>
+                        <line x1="0" y1="20" x2="100" y2="20" stroke="currentColor" class="text-slate-100 dark:text-slate-800" stroke-width="0.5" stroke-dasharray="1 1"></line>
+                        
+                        <!-- Area -->
+                        <path d="M0 40 L0 32 C 10 32, 15 15, 25 15 C 35 15, 40 30, 50 30 C 60 30, 65 10, 75 10 C 85 10, 90 20, 100 20 L 100 40 Z" fill="url(#curveGradient)"></path>
+                        <!-- Line -->
+                        <path d="M0 32 C 10 32, 15 15, 25 15 C 35 15, 40 30, 50 30 C 60 30, 65 10, 75 10 C 85 10, 90 20, 100 20" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      
+                      <!-- Tooltip -->
+                      <div class="absolute right-[20%] top-[15%] bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-xl rounded-lg p-2.5 text-[9px] z-10 animate-bounce-slight">
+                        <div class="font-bold text-slate-800 dark:text-slate-200 mb-0.5">Mar 12</div>
+                        <div class="text-slate-500 dark:text-slate-400 font-medium">1,420 Executions</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AI Agents List -->
+                <div class="p-5 lg:p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col overflow-hidden hidden sm:flex">
+                  <span class="text-sm font-bold text-slate-800 dark:text-white mb-5">AI Agents</span>
+                  <div class="flex flex-col gap-4 lg:gap-5 flex-1 overflow-hidden">
+                    
+                    <div class="flex items-center justify-between group">
+                      <div class="flex items-center gap-3 min-w-0 pr-2">
+                        <div class="w-7 h-7 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-800 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
+                          <i data-lucide="bot" class="w-3.5 h-3.5 text-indigo-500"></i>
+                        </div>
+                        <div>
+                          <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-indigo-600 transition-colors">Data Processor</div>
+                          <div class="flex items-center gap-1.5 text-[9px] font-semibold text-emerald-500 mt-0.5"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Active</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center justify-between group">
+                      <div class="flex items-center gap-3 min-w-0 pr-2">
+                        <div class="w-7 h-7 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-800 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
+                          <i data-lucide="mail" class="w-3.5 h-3.5 text-indigo-500"></i>
+                        </div>
+                        <div>
+                          <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-indigo-600 transition-colors">Email Agent</div>
+                          <div class="flex items-center gap-1.5 text-[9px] font-semibold text-emerald-500 mt-0.5"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Active</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center justify-between group">
+                      <div class="flex items-center gap-3 min-w-0 pr-2">
+                        <div class="w-7 h-7 rounded-full bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-800 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
+                          <i data-lucide="file-text" class="w-3.5 h-3.5 text-indigo-500"></i>
+                        </div>
+                        <div>
+                          <div class="text-[11px] font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-indigo-600 transition-colors">Report Generator</div>
+                          <div class="flex items-center gap-1.5 text-[9px] font-semibold text-emerald-500 mt-0.5"><div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> Active</div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STEP 3: SOCIAL PROOF MARQUEE ================= -->
+    <section class="py-16 bg-white dark:bg-slate-950 overflow-hidden text-center relative z-10">
+      <div class="max-w-7xl mx-auto px-6" id="trusted-section">
+        <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-8" id="trusted-heading">
+          TRUSTED BY MODERN TEAMS WORLDWIDE
+        </p>
+
+        <!-- Logos Container -->
+        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 sm:gap-x-16 opacity-60 dark:opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+          <div class="trusted-logo flex items-center gap-2 font-bold text-xl text-slate-800 dark:text-slate-200"><i data-lucide="layers" class="w-6 h-6"></i> NEXUS</div>
+          <div class="trusted-logo flex items-center gap-2 font-bold text-xl text-slate-800 dark:text-slate-200"><i data-lucide="cpu" class="w-6 h-6"></i> CYBERTECH</div>
+          <div class="trusted-logo flex items-center gap-2 font-bold text-xl text-slate-800 dark:text-slate-200"><i data-lucide="globe" class="w-6 h-6"></i> GLOBEX</div>
+          <div class="trusted-logo flex items-center gap-2 font-bold text-xl text-slate-800 dark:text-slate-200"><i data-lucide="crosshair" class="w-6 h-6"></i> VECTOR</div>
+          <div class="trusted-logo flex items-center gap-2 font-bold text-xl text-slate-800 dark:text-slate-200"><i data-lucide="zap" class="w-6 h-6"></i> VOLT AI</div>
+        </div>
+
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-8" id="trusted-subtitle">
+          10,000+ teams automate their everyday workflows with Flowora.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT US ================= -->
+    <section id="about" class="py-16 relative overflow-hidden bg-white dark:bg-slate-950">
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          
+          <!-- Left: Image & Graphics -->
+          <div class="relative">
+          
+            <!-- Main Image -->
+            <div class="gsap-fade-up relative w-full max-w-[450px] mx-auto lg:ml-auto lg:mr-0 aspect-[4/5] rounded-tl-2xl rounded-tr-[100px] sm:rounded-tr-[140px] rounded-br-2xl rounded-bl-2xl overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Us" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Floating Badge -->
+            <div class="gsap-fade-up absolute bottom-12 -left-4 sm:left-4 lg:-left-12 bg-white dark:bg-slate-900 rounded-xl p-4 sm:p-5 flex items-center gap-4 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] dark:shadow-none dark:border dark:border-slate-800 animate-bounce-slow">
+              <div class="w-12 h-12 rounded-xl bg-indigo-600 dark:bg-indigo-500 flex items-center justify-center text-white shrink-0">
+                <i data-lucide="trending-up" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <div class="text-2xl font-extrabold text-slate-900 dark:text-white">98%</div>
+                <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Business Goal</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Content -->
+          <div class="relative">
+            <!-- Decorative Star -->
+            <div class="absolute -top-10 right-0 text-slate-200 dark:text-slate-800/50">
+              <i data-lucide="asterisk" class="w-16 h-16"></i>
+            </div>
+             <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+              <span>About Flowora</span>
+            </div>
+            <h2 id="about-heading" class="gsap-typing-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.2] mb-6">
+              We believe work should work for you
+            </h2>
+            <p class="gsap-fade-up text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-2">
+              Flowora helps modern teams automate repetitive work, connect their favorite tools, and build intelligent workflows with AI.
+            </p>
+
+            <p class="gsap-fade-up text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-10">
+              Instead of spending hours moving data, following up on tasks, creating reports, or switching between applications, teams can let Flowora handle the busywork — so they can focus on the work that actually matters.
+            </p>
+
+            <!-- Experience & Features Block -->
+            <div class="gsap-fade-up flex flex-col sm:flex-row gap-8 mb-10 pb-10 border-b border-slate-200 dark:border-slate-800">
+              
+              <!-- Experience Box -->
+              <div class="flex items-center w-full sm:w-auto shrink-0 sm:pr-8 lg:pr-12 sm:border-r border-slate-200 dark:border-slate-800 gap-2">
+                <div class="bg-indigo-50 dark:bg-indigo-500/10 rounded-[1.25rem] w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20 relative z-0">
+                  <div class="text-6xl sm:text-[72px] font-black text-indigo-600 dark:text-indigo-500 leading-none">25</div>
+                </div>
+                <div class="text-[11px] sm:text-[13px] font-extrabold text-indigo-950 dark:text-indigo-200 uppercase tracking-widest leading-[1.4] -ml-3 sm:-ml-4 relative z-10">
+                  Years<br>Experience
+                </div>
+              </div>
+
+              <!-- List -->
+              <div class="flex flex-col justify-center gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-5 rounded-full border border-indigo-600 dark:border-indigo-500 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  </div>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Work smarter</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-5 rounded-full border border-indigo-600 dark:border-indigo-500 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  </div>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Automate more</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-5 rounded-full border border-indigo-600 dark:border-indigo-500 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+                    <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                  </div>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Grow faster</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Contact & Author -->
+            <div class="gsap-fade-up flex flex-col sm:flex-row sm:items-center gap-7">
+              
+              <!-- Author -->
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200 shrink-0">
+                  <img src="https://ui-avatars.com/api/?name=Martinaze&background=f1f5f9" alt="Martinaze" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <div class="font-serif italic text-lg text-slate-800 dark:text-slate-300 mb-1">Martinaze.</div>
+                  <div class="text-xs font-bold text-slate-800 dark:text-slate-200">
+                    Martinaze, <span class="text-indigo-600 dark:text-indigo-400 font-medium">CEO</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+                  <i data-lucide="phone-call" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] font-semibold text-slate-500 mb-0.5">Hot Line Number</div>
+                  <div class="text-sm font-extrabold text-slate-900 dark:text-white">+123 8989 444</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STEP 4: POWERFUL FEATURES ================= -->
+    <section id="features" class="py-16 max-w-7xl mx-auto px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-4xl mx-auto mb-16">
+          <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+              <span>POWERFUL FEATURES</span>
+            </div>
+        <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">Everything you need to automate your workflow</h2>
+        <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-base">Powerful AI automation tools designed to work together — from your first workflow to enterprise-scale operations.</p>
+      </div>
+
+      <!-- 3 Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Feature 1 -->
+        <div class="gsap-feature-left rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex gap-5 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+            <i data-lucide="bot" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-slate-900 dark:text-white mb-2">AI Workflow Agents</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">Create intelligent agents that understand your processes, make decisions, and complete tasks automatically.</p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="gsap-feature-center rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex gap-5 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+            <i data-lucide="workflow" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-slate-900 dark:text-white mb-2">Smart Automation</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">Connect triggers, actions and AI decisions into workflows that run automatically.</p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="gsap-feature-right rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex gap-5 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+            <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-slate-900 dark:text-white mb-2">Real-Time Analytics</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">See what's happening across your workflows with live performance insights and dashboards.</p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="gsap-feature-left rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex gap-5 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
+            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-slate-900 dark:text-white mb-2">100+ Integrations</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4">Connect the tools your team already uses with our growing library of integrations.</p>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="gsap-feature-center rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex gap-5 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-slate-900 dark:text-white mb-2">Enterprise Security</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4">Built with enterprise-grade security to keep your data, workflows and team safe.</p>
+            <div class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-emerald-50 text-emerald-600 text-[11px] font-semibold">
+              <i data-lucide="check-circle-2" class="w-3 h-3"></i> SOC 2 Ready
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="gsap-feature-right rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex gap-5 hover:shadow-lg transition-shadow duration-300">
+          <div class="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-500/10 flex items-center justify-center text-pink-600 dark:text-pink-400 shrink-0">
+            <i data-lucide="share-2" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="text-[17px] font-bold text-slate-900 dark:text-white mb-2">AI-Powered Insights</h3>
+            <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">Turn workflow data into actionable recommendations to optimize performance automatically.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= STEP 5: HOW IT WORKS WORKFLOW ================= -->
+    <section id="how-it-works" class="py-16 relative overflow-hidden bg-white dark:bg-slate-950">
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-20">
+          <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+            <span>How it works</span>
+          </div>
+          <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">Up and running in 3 simple steps</h2>
+          <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-base">No complex server provisioning or machine learning background needed.</p>
+        </div>
+
+        <!-- 3-Step Process Cards -->
+        <div class="relative">
+          <!-- Connecting Line (Desktop Only) -->
+          <div class="hidden md:block absolute top-14 left-0 right-0 border-t-2 border-dashed border-indigo-200 dark:border-indigo-800/60 z-0"></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Step 1 -->
+            <div class="gsap-feature-left relative group rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)] hover:border-indigo-200 dark:hover:border-indigo-500/50 overflow-hidden z-10 hover:-translate-y-2">
+              <div class="absolute -right-4 -top-6 text-[120px] font-black text-indigo-50 dark:text-indigo-900/20 leading-none group-hover:text-indigo-100 dark:group-hover:text-indigo-900/40 transition-colors duration-500 pointer-events-none z-0">
+                1
+              </div>
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-indigo-600/20 group-hover:scale-110 group-hover:shadow-indigo-600/40">
+                  <i data-lucide="database" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Connect Your Data</h3>
+                <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Link your documents, databases, or API keys with one click using our pre-built encrypted connectors.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="gsap-feature-center relative group rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)] hover:border-indigo-200 dark:hover:border-indigo-500/50 overflow-hidden z-10 hover:-translate-y-2">
+              <div class="absolute -right-4 -top-6 text-[120px] font-black text-indigo-50 dark:text-indigo-900/20 leading-none group-hover:text-indigo-100 dark:group-hover:text-indigo-900/40 transition-colors duration-500 pointer-events-none z-0">
+                2
+              </div>
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-indigo-600/20 group-hover:scale-110 group-hover:shadow-indigo-600/40">
+                  <i data-lucide="settings-2" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Configure AI Agents</h3>
+                <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Define your prompts, automated actions, and guardrails using our visual workflow builder interface.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="gsap-feature-right relative group rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)] hover:border-indigo-200 dark:hover:border-indigo-500/50 overflow-hidden z-10 hover:-translate-y-2">
+              <div class="absolute -right-4 -top-6 text-[120px] font-black text-indigo-50 dark:text-indigo-900/20 leading-none group-hover:text-indigo-100 dark:group-hover:text-indigo-900/40 transition-colors duration-500 pointer-events-none z-0">
+                3
+              </div>
+              <div class="relative z-10">
+                <div class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-indigo-600/20 group-hover:scale-110 group-hover:shadow-indigo-600/40">
+                  <i data-lucide="rocket" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">Deploy & Scale</h3>
+                <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Publish your agent directly to web, Slack, or embed it into your app via lightweight JS snippets.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= STEP 6: PRICING TABLE ================= -->
+    <section id="pricing" class="py-16 max-w-7xl mx-auto px-6">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+         <div class="text-center max-w-4xl mx-auto mb-16">
+          <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+              <span>Flexible Pricing Plan</span>
+            </div>
+        <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">We’ve Offered The Best
+Pricing For You</h2>
+        <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-base">Start with a 14-day free trial. No credit card required.</p>
+      </div>
+        <!-- Monthly / Yearly Billing Toggle -->
+        <div class="flex items-center justify-center gap-4 mt-10">
+          <span id="billing-monthly-label" class="text-sm font-bold text-slate-900 dark:text-white">Monthly</span>
+          <button id="billing-toggle" type="button" role="switch" aria-checked="false" aria-label="Toggle Billing Interval" class="relative inline-flex h-7 w-14 shrink-0 cursor-pointer rounded-full bg-slate-200 dark:bg-slate-800 p-1 transition-colors duration-200 ease-in-out focus:outline-none">
+            <span id="billing-toggle-thumb" class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-indigo-600 shadow-md transition duration-200 ease-in-out translate-x-0"></span>
+          </button>
+          <span id="billing-yearly-label" class="text-sm font-bold text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            Yearly
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold uppercase tracking-widest">Save 20%</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
+        
+        <!-- Starter Tier -->
+        <div class="gsap-feature-left rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-shadow">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Starter</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Essential AI automation for freelancers and creators.</p>
+            
+            <div class="mb-8 flex items-end gap-1">
+              <span class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white price-value" data-monthly="$19" data-yearly="$15">$19</span>
+              <span class="text-slate-500 text-sm font-medium mb-1">/month</span>
+            </div>
+
+            <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> 10,000 AI credits / month</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> 2 Custom AI Agents</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> Standard Webhook Access</li>
+            </ul>
+          </div>
+          <a href="#contact" class="mt-8 w-full block px-6 py-3 rounded-lg bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 border border-indigo-600 dark:border-indigo-500 text-slate-700 dark:text-slate-200 font-medium text-sm transition-colors text-center">Start Free Trial</a>
+        </div>
+
+        <!-- Pro Business Tier (Featured Popular Card) -->
+        <div class="gsap-feature-center relative rounded-3xl bg-indigo-600 text-white p-8 flex flex-col justify-between shadow-[0_8px_30px_rgba(79,70,229,0.1)] transform md:-translate-y-4">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-400 text-white text-[10px] font-bold tracking-widest uppercase shadow-md border border-white/20">Most Popular</span>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Pro Business</h3>
+            <p class="text-sm text-indigo-100 mb-6">Advanced models and team collaboration features.</p>
+            
+            <div class="mb-8 flex items-end gap-1">
+              <span class="text-4xl font-extrabold tracking-tight price-value" data-monthly="$49" data-yearly="$39">$49</span>
+              <span class="text-indigo-200 text-sm font-medium mb-1">/month</span>
+            </div>
+
+            <ul class="space-y-4 text-sm text-white">
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-200 shrink-0"></i> 100,000 AI credits / month</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-200 shrink-0"></i> Unlimited AI Agents</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-200 shrink-0"></i> High-Priority REST API</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-200 shrink-0"></i> Slack & Team Integration</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-200 shrink-0"></i> 24/7 Priority Support</li>
+            </ul>
+          </div>
+          <a href="#contact" class="mt-8 w-full block px-6 py-3 rounded-lg bg-white hover:bg-slate-50 text-indigo-600 font-medium text-sm transition-colors text-center">Get Started Now</a>
+        </div>
+
+        <!-- Enterprise Tier -->
+        <div class="gsap-feature-right rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 flex flex-col justify-between shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-shadow">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Enterprise</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Custom LLM deployment for high-volume enterprises.</p>
+            
+            <div class="mb-8 flex items-end gap-1">
+              <span class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Custom</span>
+            </div>
+
+            <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> Unlimited Compute & Tokens</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> Private Model Fine-Tuning</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> SOC-2 Audit & On-Prem Support</li>
+              <li class="flex items-start gap-3"><i data-lucide="check" class="w-5 h-5 text-indigo-500 shrink-0"></i> Dedicated Account Manager</li>
+            </ul>
+          </div>
+          <a href="#contact" class="mt-8 w-full block px-6 py-3 rounded-lg bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 border border-indigo-600 dark:border-indigo-500 text-slate-700 dark:text-slate-200 font-medium text-sm transition-colors text-center">Contact Sales</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= STEP 7: TESTIMONIALS ================= -->
+    <section class="py-16 border-t border-slate-100 bg-white dark:border-slate-800 dark:bg-slate-950">
+      <div class="max-w-5xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+            <span>Testimonials</span>
+          </div>
+          <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white">Loved by 10,000+ teams worldwide</h2>
+          <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-base">See how industry leaders are transforming their workflows with Flowora.</p>
+        </div>
+        
+        <div class="relative">
+          
+          <!-- Profile avatars row -->
+          <div class="gsap-fade-up flex items-center justify-center gap-3 sm:gap-4 mb-8 transition-opacity duration-300" id="ts-avatar-container">
+            <!-- Inactive smaller avatars (left) -->
+            <div class="w-8 h-8 rounded-full overflow-hidden opacity-30 grayscale transition-all duration-300"><img id="ts-left-2-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="User" class="w-full h-full object-cover"></div>
+            <div class="w-12 h-12 rounded-full overflow-hidden opacity-50 grayscale transition-all duration-300"><img id="ts-left-1-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="User" class="w-full h-full object-cover"></div>
+            
+            <!-- Active center avatar -->
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-[3px] border-white dark:border-slate-900 shadow-xl relative z-10 scale-110 transition-all duration-300"><img id="ts-active-img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Sophia Lloyd" class="w-full h-full object-cover"></div>
+            
+            <!-- Inactive smaller avatars (right) -->
+            <div class="w-12 h-12 rounded-full overflow-hidden opacity-50 grayscale transition-all duration-300"><img id="ts-right-1-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="User" class="w-full h-full object-cover"></div>
+            <div class="w-8 h-8 rounded-full overflow-hidden opacity-30 grayscale transition-all duration-300"><img id="ts-right-2-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="User" class="w-full h-full object-cover"></div>
+          </div>
+
+          <div id="ts-content-container" class="transition-opacity duration-300">
+            <!-- Testimonial Info -->
+            <div class="text-center mb-8">
+              <h4 id="ts-name" class="text-lg font-bold text-slate-900 dark:text-white">Sophia Lloyd</h4>
+              <p id="ts-role" class="text-[11px] font-semibold uppercase tracking-widest text-slate-500 mt-1">CEO, XIO</p>
+            </div>
+
+            <!-- Quote Text -->
+            <div class="relative max-w-2xl mx-auto text-center px-6 sm:px-12">
+              <span class="absolute -top-4 -left-2 sm:-left-4 text-6xl text-indigo-100 dark:text-indigo-900/30 font-black leading-none pointer-events-none">"</span>
+              <p id="ts-quote" class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                Excellent work guys. Redesign of the application really help me grow my business and revenue. I would like to work again with you in future sometime.
+              </p>
+              <span class="absolute -bottom-10 -right-2 sm:-right-4 text-6xl text-indigo-100 dark:text-indigo-900/30 font-black leading-none pointer-events-none">"</span>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="gsap-fade-up mt-16 flex justify-center items-center gap-6 text-slate-400">
+            <button id="ts-prev" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-600 dark:hover:bg-indigo-900/30 dark:hover:border-indigo-800 dark:hover:text-indigo-400 transition-colors cursor-pointer"><i data-lucide="arrow-left" class="w-4 h-4"></i></button>
+            <div class="font-bold text-slate-800 dark:text-slate-200 flex items-baseline gap-1">
+              <span id="ts-current" class="text-xl">1</span><span class="text-sm text-slate-400 font-medium">/<span id="ts-total">5</span></span>
+            </div>
+            <button id="ts-next" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-600 dark:hover:bg-indigo-900/30 dark:hover:border-indigo-800 dark:hover:text-indigo-400 transition-colors cursor-pointer"><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STEP 8: FAQ ACCORDION ================= -->
+    <section id="faq" class="py-16 max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Left Side: Image & Headers -->
+        <div>
+          <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+            <span>Support & FAQ</span>
+          </div>
+          <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+          <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-sm mb-10 max-w-sm">Everything you need to know about the product, billing, and how Flowora handles your data securely.</p>
+        </div>
+
+        <!-- Right Side: Accordions -->
+        <div class="gsap-feature-right space-y-4">
+          <!-- FAQ Item 1 -->
+          <details class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <summary class="flex items-center justify-between font-semibold text-slate-900 dark:text-slate-100 outline-none">
+              <span class="text-[15px]">How does the 14-day free trial work?</span>
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-open:rotate-180 group-open:bg-indigo-50 dark:group-open:bg-indigo-900/30 group-open:text-indigo-600 transition-all duration-300">
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              You get full access to all Pro features for 14 days without entering credit card details. You can upgrade, downgrade, or cancel at any time directly from your dashboard settings.
+            </p>
+          </details>
+
+          <!-- FAQ Item 2 -->
+          <details class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <summary class="flex items-center justify-between font-semibold text-slate-900 dark:text-slate-100 outline-none">
+              <span class="text-[15px]">Is my data secure with Flowora?</span>
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-open:rotate-180 group-open:bg-indigo-50 dark:group-open:bg-indigo-900/30 group-open:text-indigo-600 transition-all duration-300">
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              Absolutely. We are SOC-2 Type II compliant and enforce end-to-end 256-bit AES encryption. Your data is yours alone and is never used to train public LLM models.
+            </p>
+          </details>
+
+          <!-- FAQ Item 3 -->
+          <details class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <summary class="flex items-center justify-between font-semibold text-slate-900 dark:text-slate-100 outline-none">
+              <span class="text-[15px]">Can I integrate with my existing tools?</span>
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-open:rotate-180 group-open:bg-indigo-50 dark:group-open:bg-indigo-900/30 group-open:text-indigo-600 transition-all duration-300">
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              Yes, Flowora connects seamlessly with over 100+ popular applications including Slack, Notion, GitHub, and major databases through our pre-built integrations or standard REST API.
+            </p>
+          </details>
+
+          <!-- FAQ Item 4 -->
+          <details class="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <summary class="flex items-center justify-between font-semibold text-slate-900 dark:text-slate-100 outline-none">
+              <span class="text-[15px]">What kind of support do you offer?</span>
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-open:rotate-180 group-open:bg-indigo-50 dark:group-open:bg-indigo-900/30 group-open:text-indigo-600 transition-all duration-300">
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+              </span>
+            </summary>
+            <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              All plans include standard email support. Pro Business and Enterprise plans come with priority 24/7 support, dedicated Slack channels, and a dedicated Account Manager.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BLOG SECTION ================= -->
+    <section id="blog" class="py-16 bg-white dark:bg-slate-950">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+            <span>Latest Articles</span>
+          </div>
+          <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white">Latest from the Blog</h2>
+          <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-base">Practical ideas, expert insights, and the latest thinking on AI, automation, productivity, and modern software.</p>
+        </div>
+
+        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Blogs injected dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT US SECTION ================= -->
+    <section id="contact" class="py-16 max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="gsap-fade-up inline-flex items-center text-[12px] font-bold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider">
+          <span>Get In Touch</span>
+        </div>
+        <h2 class="gsap-typing-heading text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white">Contact Us</h2>
+        <p class="gsap-fade-up text-slate-500 dark:text-slate-400 text-base">Have questions or need help? Our team is always here to assist you.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        
+        <!-- Contact Info Cards -->
+        <div class="gsap-feature-left space-y-6">
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex items-start gap-4 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0">
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">Email Us</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Our support team replies within 2 hours.</p>
+              <a href="mailto:support@flowora.template" class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">support@flowora.template</a>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex items-start gap-4 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+              <i data-lucide="phone" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">Phone Number</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Mon-Fri from 8am to 5pm.</p>
+              <a href="tel:+15551234567" class="text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline">+1 (555) 123-4567</a>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-6 flex items-start gap-4 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 shrink-0">
+              <i data-lucide="map-pin" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 dark:text-white mb-1">Office Location</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                100 Tech Plaza, Suite 400<br>San Francisco, CA 94107
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Container -->
+        <div class="gsap-feature-right lg:col-span-2 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 sm:p-10 shadow-[0_2px_12px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all relative">
+          <form id="contact-form" action="php/contact.php" method="POST" class="space-y-6">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Inquiry about Pro Plan" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+              </div>
+              <div>
+                <label for="inquiry-type" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Topic</label>
+                <select id="inquiry-type" name="inquiry_type" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-indigo-500 transition-colors text-slate-600 dark:text-slate-300">
+                  <option value="sales">Sales & Pricing</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="enterprise">Enterprise Custom Model</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Your Message *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-indigo-500 transition-colors"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2 cursor-pointer">
+              <span>Send Message</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+
+            <!-- Form Alert Messages -->
+            <div id="form-response" class="hidden p-4 rounded-xl text-xs font-medium border"></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= CONVERSION CTA BANNER ================= -->
+    <section class="pt-0 pb-16 max-w-7xl mx-auto px-6">
+      <div class="relative rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 p-12 md:p-20 text-center text-white overflow-hidden shadow-2xl">
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -top-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <h2 class="gsap-typing-heading text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 relative z-10">
+          Ready to transform your workflow?
+        </h2>
+        <p class="gsap-fade-up text-indigo-100 text-lg max-w-2xl mx-auto mb-10 relative z-10">
+          Join thousands of modern teams automating their day-to-day operations with Flowora today. No credit card required.
+        </p>
+        
+        <div class="gsap-fade-up flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
+          <a href="#pricing" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-white hover:bg-slate-50 text-indigo-600 font-medium text-sm transition-colors text-center">
+            Start building for free
+          </a>
+          <a href="#contact" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-transparent hover:bg-white/10 border border-white/50 text-white font-medium text-sm transition-colors text-center">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= STEP 9: FOOTER ================= -->
+  <footer class="bg-slate-950 pt-20 pb-12 text-sm text-slate-400">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
+      
+      <!-- Brand Column -->
+      <div class="col-span-2 md:col-span-2">
+        <a href="index.html" class="flex items-center gap-2 text-2xl font-bold tracking-tight mb-6 text-white">
+          <span><span class="text-4xl text-indigo-500">F</span>lowora</span>
+        </a>
+        <p class="text-slate-400 text-sm max-w-xs mb-8 leading-relaxed">
+          The all-in-one automation platform for modern teams. Build, deploy, and scale intelligent workflows in minutes.
+        </p>
+        <div class="flex gap-4">
+          <a href="javascript:void(0)" aria-label="Twitter" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all text-slate-400">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="javascript:void(0)" aria-label="GitHub" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all text-slate-400">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="javascript:void(0)" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-600 hover:text-white transition-all text-slate-400">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Column 1 -->
+      <div>
+        <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-xs">Product</h4>
+        <ul class="space-y-4">
+          <li><a href="#features" class="hover:text-white transition-colors flex items-center gap-2">Features <span class="px-1.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 text-[10px] font-bold">New</span></a></li>
+          <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2 -->
+      <div>
+        <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-xs">Resources</h4>
+        <ul class="space-y-4">
+          <li><a href="#blog" class="hover:text-white transition-colors">Blog</a></li>
+          <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 3 -->
+      <div>
+        <h4 class="font-bold text-white mb-6 uppercase tracking-wider text-xs">Pages</h4>
+        <ul class="space-y-4">
+          <li><a href="404.html" class="hover:text-white transition-colors">404 Page</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>&copy; 2026 Flowora Template. All rights reserved.</p>
+    </div>
+  </footer>
+  </main>
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Main Scripts -->
+  <script src="assets/js/blog-data.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

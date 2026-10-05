@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation - Flowora AI SaaS Template</title>
+  <meta name="description" content="Comprehensive documentation for the Flowora AI SaaS HTML Template.">
+  
+  <script>
+    window.tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Manrope', 'sans-serif'],
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tailwind CSS v3 CDN for offline file:/// compatibility -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/documentation.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Mobile Header -->
+  <header class="lg:hidden sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+      <span><span class="text-3xl text-indigo-600">F</span>lowora</span>
+    </a>
+    <button id="mobile-menu-btn" class="p-2 text-slate-600 rounded-lg hover:bg-slate-100">
+      <i data-lucide="menu" class="w-5 h-5"></i>
+    </button>
+  </header>
+
+  <!-- Sidebar Overlay -->
+  <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden lg:hidden backdrop-blur-sm"></div>
+
+  <div class="flex min-h-screen">
+    <!-- Sidebar Navigation -->
+    <aside id="docs-sidebar" class="fixed lg:sticky top-0 left-0 z-50 h-screen w-72 bg-white border-r border-slate-200 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300 py-8 px-6 shadow-xl lg:shadow-none">
+      <a href="index.html" class="hidden lg:flex items-center gap-2.5 text-2xl font-bold tracking-tight mb-10 text-slate-900">
+        <span><span class="text-4xl text-indigo-600">F</span>lowora</span>
+      </a>
+
+      <nav class="space-y-8">
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Getting Started</h4>
+          <ul class="space-y-1 text-sm text-slate-600 font-medium">
+            <li><a href="#introduction" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Introduction</a></li>
+            <li><a href="#features" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Features</a></li>
+            <li><a href="#requirements" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Requirements</a></li>
+            <li><a href="#installation" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Installation</a></li>
+            <li><a href="#folder-structure" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Folder Structure</a></li>
+            <li><a href="#html-structure" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">HTML Page Structure</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Customization</h4>
+          <ul class="space-y-1 text-sm text-slate-600 font-medium">
+            <li><a href="#editing-content" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Editing Content</a></li>
+            <li><a href="#changing-logo" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Changing Logo</a></li>
+            <li><a href="#changing-colors" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Changing Colors</a></li>
+            <li><a href="#changing-typography" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Changing Typography</a></li>
+            <li><a href="#changing-images" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Changing Images</a></li>
+            <li><a href="#navigation" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Navigation & Menu</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Pages & Sections</h4>
+          <ul class="space-y-1 text-sm text-slate-600 font-medium">
+            <li><a href="#homepage" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Homepage Sections</a></li>
+            <li><a href="#blog" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Blog System</a></li>
+            <li><a href="#contact" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Contact Page</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Codebase</h4>
+          <ul class="space-y-1 text-sm text-slate-600 font-medium">
+            <li><a href="#javascript" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">JavaScript</a></li>
+            <li><a href="#css" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">CSS & Tailwind</a></li>
+            <li><a href="#responsive" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Responsive Design</a></li>
+            <li><a href="#browser-compatibility" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Browser Compatibility</a></li>
+            <li><a href="#plugins-credits" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Plugins & Credits</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Help</h4>
+          <ul class="space-y-1 text-sm text-slate-600 font-medium">
+            <li><a href="#seo" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">SEO Setup</a></li>
+            <li><a href="#troubleshooting" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Troubleshooting</a></li>
+            <li><a href="#customization-tips" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Customization Tips</a></li>
+            <li><a href="#changelog" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Changelog</a></li>
+            <li><a href="#support" class="nav-link block py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors border-l-2 border-transparent">Support</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-12 px-6 lg:px-16 max-w-5xl">
+      
+      <!-- 1. Introduction -->
+      <section id="introduction" class="doc-section mb-16">
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-4">Flowora AI SaaS Template</h1>
+        <p class="text-xl text-slate-500 mb-8">Thank you for purchasing the Flowora HTML Template! This comprehensive documentation will guide you through installation, customization, and deployment.</p>
+        
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li class="flex items-start gap-3"><strong class="w-32 shrink-0 text-slate-900">Template Name:</strong> Flowora AI SaaS HTML Template</li>
+            <li class="flex items-start gap-3"><strong class="w-32 shrink-0 text-slate-900">Version:</strong> 1.0.0</li>
+            <li class="flex items-start gap-3"><strong class="w-32 shrink-0 text-slate-900">Author:</strong> Your Company Name</li>
+            <li class="flex items-start gap-3"><strong class="w-32 shrink-0 text-slate-900">Support:</strong> support@yourdomain.com</li>
+          </ul>
+        </div>
+
+        <p class="text-slate-600 leading-relaxed mb-6">
+          <strong>Flowora</strong> is a modern, ultra-premium HTML5 template engineered specifically for AI startups, SaaS companies, and technology software platforms. It is built using the cutting-edge <strong>Tailwind CSS v4 CDN</strong>, allowing you to customize the entire theme directly in HTML without needing complex Node.js build steps or Webpack setups.
+        </p>
+        <p class="text-slate-600 leading-relaxed">
+          It features buttery-smooth <strong>Lenis scrolling</strong>, dynamic <strong>GSAP entrance animations</strong>, and a flawless <strong>Dark Mode</strong> system built natively into the codebase. 
+        </p>
+      </section>
+
+      <!-- 2. Features -->
+      <section id="features" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">2. Features</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-600">
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Built on Tailwind CSS v4 CDN</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Seamless Dark / Light Mode Toggle</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> High-performance GSAP Scroll Animations</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Lenis Smooth Page Scrolling</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Lucide Icons integration</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Fully Responsive across all devices</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Pre-built Blog Detail and 404 Pages</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> Interactive Pricing Switcher</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> W3C Validated HTML5 Markup</li>
+          <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> No Node.js build process required</li>
+        </ul>
+      </section>
+
+      <!-- 3. Requirements -->
+      <section id="requirements" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">3. Requirements</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">Flowora is a static HTML template powered by CDNs. It does <strong>not</strong> require Node.js, NPM, Webpack, or any databases to run. To work with this template, you will need:</p>
+        
+        <ul class="list-disc pl-6 space-y-2 text-slate-600 mb-6">
+          <li>A modern code editor (we highly recommend <strong>Visual Studio Code</strong>).</li>
+          <li>A local web server to prevent CORS issues with local files. (The <strong>Live Server</strong> extension in VS Code is perfect).</li>
+          <li>A modern web browser (Chrome, Firefox, Edge, Safari).</li>
+          <li>Basic knowledge of HTML and CSS.</li>
+          <li>A standard web hosting provider (cPanel, FTP/SFTP, or static hosting like Vercel/Netlify).</li>
+        </ul>
+        
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+          <p class="text-amber-800 text-sm font-medium"><strong>Note:</strong> Flowora is a frontend static HTML template. It does not include a backend (like PHP/MySQL or Node.js) for processing dynamic user data or form submissions. The included `php/contact.php` is a basic mailer script requiring standard PHP hosting.</p>
+        </div>
+      </section>
+
+      <!-- 4. Installation -->
+      <section id="installation" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">4. Installation & Setup</h2>
+        
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Step 1: Extract the package</h3>
+            <p class="text-slate-600 text-sm">Download the ZIP file from TemplateMonster. Extract the ZIP file to a folder on your computer. Inside, you will find the `Main_Files` directory which contains the actual template.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Step 2: Open in Code Editor</h3>
+            <p class="text-slate-600 text-sm">Open <strong>Visual Studio Code</strong>. Go to `File > Open Folder...` and select the extracted `Main_Files/templates` directory.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Step 3: Run the template locally</h3>
+            <p class="text-slate-600 text-sm mb-3">Because the template relies on JS features and CDNs, simply double-clicking `index.html` might cause CORS errors. Instead, use a local server:</p>
+            <ol class="list-decimal pl-6 space-y-1 text-sm text-slate-600">
+              <li>In VS Code, go to the Extensions tab (Ctrl+Shift+X).</li>
+              <li>Search for and install <strong>Live Server</strong> (by Ritwick Dey).</li>
+              <li>Right-click on `index.html` in your file explorer.</li>
+              <li>Select <strong>"Open with Live Server"</strong>.</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Step 4: Upload to Hosting</h3>
+            <p class="text-slate-600 text-sm mb-3">When you are ready to publish, upload the contents of the `templates` folder to your live server.</p>
+            <ul class="list-disc pl-6 space-y-1 text-sm text-slate-600">
+              <li><strong>cPanel:</strong> Open File Manager, navigate to `public_html`, and upload your files there.</li>
+              <li><strong>FTP/SFTP:</strong> Use FileZilla or Cyberduck to connect to your server, and drag the contents of the `templates` folder into the `public_html` or `www` directory.</li>
+            </ul>
+            <p class="text-slate-600 text-sm mt-3">Ensure that `index.html` is in the root directory of your public folder.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Folder Structure -->
+      <section id="folder-structure" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">5. Folder Structure</h2>
+        <p class="text-slate-600 mb-4">Here is the directory structure you will find inside the template folder:</p>
+        
+        <div class="bg-slate-900 rounded-xl p-6 overflow-x-auto">
+<pre class="text-sm font-mono text-slate-300">
+Flowora_Template/
+├── index.html           <span class="text-slate-500"># Main Landing Page</span>
+├── 404.html             <span class="text-slate-500"># Custom 404 Error Page</span>
+├── blog-detail.html     <span class="text-slate-500"># Blog Article Reading Page</span>
+│
+├── assets/
+│   ├── css/
+│   │   └── main.css     <span class="text-slate-500"># Custom utility CSS classes & GSAP hooks</span>
+│   ├── fonts/           <span class="text-slate-500"># Local font files (if any)</span>
+│   ├── images/          <span class="text-slate-500"># All template images (hero, features, logos)</span>
+│   └── js/
+│       ├── vendor/      <span class="text-slate-500"># Third-party vendor scripts (e.g. GSAP)</span>
+│       │   └── gsap.min.js
+│       ├── main.js      <span class="text-slate-500"># Core functionality (Animations, Theme Toggle)</span>
+│       └── blog-data.js <span class="text-slate-500"># Example static data for the blog detail page</span>
+│
+├── php/
+│   └── contact.php      <span class="text-slate-500"># Basic PHP mailer script for contact forms</span>
+│
+└── documentation/       <span class="text-slate-500"># This documentation folder</span>
+</pre>
+        </div>
+      </section>
+
+      <!-- 6. HTML Page Structure -->
+      <section id="html-structure" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">6. HTML Page Structure</h2>
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left border-collapse doc-table">
+            <thead>
+              <tr class="text-sm text-slate-700 border-b border-slate-200">
+                <th class="py-3 px-4 font-bold">Page</th>
+                <th class="py-3 px-4 font-bold">File</th>
+                <th class="py-3 px-4 font-bold">Purpose</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-600 divide-y divide-slate-200">
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Home</td>
+                <td class="py-3 px-4 font-mono text-xs bg-slate-50 rounded">index.html</td>
+                <td class="py-3 px-4">Primary landing page including Hero, Features, Pricing, Testimonials, FAQ, and Contact sections.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Blog Details</td>
+                <td class="py-3 px-4 font-mono text-xs bg-slate-50 rounded">blog-detail.html</td>
+                <td class="py-3 px-4">Individual article reading page with rich text rendering.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">404 Error</td>
+                <td class="py-3 px-4 font-mono text-xs bg-slate-50 rounded">404.html</td>
+                <td class="py-3 px-4">Custom error page with animated entrance and redirect links.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 7. Template Customization Guide -->
+      <section id="editing-content" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">7. Quick Customization Guide</h2>
+        <p class="text-slate-600 mb-6">This quick reference guide explains exactly where to go to customize key parts of the Flowora template. All changes are made directly in the HTML files.</p>
+        
+        <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+          <table class="w-full text-left border-collapse doc-table">
+            <thead>
+              <tr class="bg-slate-50 text-sm text-slate-700 border-b border-slate-200">
+                <th class="py-3 px-4 font-bold w-1/3">What to change</th>
+                <th class="py-3 px-4 font-bold">Where to find it</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-600 divide-y divide-slate-200">
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Logo</td>
+                <td class="py-3 px-4"><code>index.html</code> (and other HTML pages) inside the <code>&lt;header&gt;</code> tag. Replace the text or SVG with your own <code>&lt;img&gt;</code> tag pointing to <code>assets/images/logo.png</code>.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Favicon</td>
+                <td class="py-3 px-4">In the <code>&lt;head&gt;</code> of all HTML files: <code>&lt;link rel="icon" href="assets/images/favicon.svg" ...&gt;</code>.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Brand Name</td>
+                <td class="py-3 px-4">Search all HTML files for "Flowora" and replace it with your company name.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Brand Colors</td>
+                <td class="py-3 px-4">The template uses Tailwind's <code>indigo</code> color by default. Use your code editor's "Find and Replace" to replace <code>text-indigo-</code> and <code>bg-indigo-</code> with your preferred color (e.g., <code>blue-</code> or <code>emerald-</code>).</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Typography</td>
+                <td class="py-3 px-4">In the <code>&lt;style type="text/tailwindcss"&gt;</code> block located in the <code>&lt;head&gt;</code> of each HTML file. Change <code>--font-heading</code> and <code>--font-sans</code>.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Hero Heading & Text</td>
+                <td class="py-3 px-4"><code>index.html</code>: Look for the <code>&lt;!-- ================= STEP 2: HERO ================= --&gt;</code> comment block.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Feature Cards</td>
+                <td class="py-3 px-4"><code>index.html</code>: Look for the <code>&lt;!-- ================= STEP 4: FEATURES ================= --&gt;</code> comment block. Edit the titles and descriptions within the grid.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Pricing & Packages</td>
+                <td class="py-3 px-4"><code>index.html</code>: Look for the <code>&lt;!-- ================= STEP 6: PRICING ================= --&gt;</code> comment block. Update the <code>data-monthly</code> and <code>data-yearly</code> attributes for prices.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Testimonials</td>
+                <td class="py-3 px-4"><code>index.html</code>: Look for the <code>&lt;!-- ================= STEP 7: TESTIMONIALS ================= --&gt;</code> comment block.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">FAQ</td>
+                <td class="py-3 px-4"><code>index.html</code>: Look for the <code>&lt;!-- ================= STEP 8: FAQ ================= --&gt;</code> comment block. Edit the text inside the <code>&lt;summary&gt;</code> and <code>&lt;p&gt;</code> tags.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Blog Content</td>
+                <td class="py-3 px-4">Edit the <code>assets/js/blog-data.js</code> file to change the sample blog posts displayed on the <code>blog-detail.html</code> page.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Contact Information</td>
+                <td class="py-3 px-4"><code>index.html</code>: Look for the <code>&lt;!-- Contact Section --&gt;</code> block to update email addresses and phone numbers.</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-slate-900">Footer & Social Links</td>
+                <td class="py-3 px-4">Located at the very bottom of every HTML page inside the <code>&lt;footer&gt;</code> tag. Update the <code>href</code> attributes of the social icons.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 8. Changing Logo -->
+      <section id="changing-logo" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">8. Changing the Logo</h2>
+        <p class="text-slate-600 mb-4">By default, Flowora uses a text-based logo with an icon. To replace it with your own image logo:</p>
+        
+        <ol class="list-decimal pl-6 space-y-2 text-slate-600 mb-6">
+          <li>Prepare your logo in SVG or high-res PNG format (recommended height: 40px).</li>
+          <li>Place your logo file in <code>assets/images/logo/</code>.</li>
+          <li>Open <code>index.html</code> (and other pages) and locate the logo in the <code>&lt;header&gt;</code> section.</li>
+          <li>Replace the HTML code with an `img` tag.</li>
+        </ol>
+
+        <pre class="bg-slate-900 text-slate-300 p-4 rounded-xl text-sm font-mono mb-4">
+&lt;!-- Replace this: --&gt;
+&lt;a href="index.html" class="flex items-center gap-2.5 text-xl font-bold..."&gt;
+  &lt;span&gt;&lt;span class="text-3xl text-indigo-600 dark:text-indigo-400"&gt;F&lt;/span&gt;lowora&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!-- With this: --&gt;
+&lt;a href="index.html" class="flex items-center"&gt;
+  &lt;img src="assets/images/logo/your-logo.svg" alt="Your Company" class="h-8 w-auto"&gt;
+&lt;/a&gt;</pre>
+      </section>
+
+      <!-- 9. Changing Colors -->
+      <section id="changing-colors" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">9. Changing Brand Colors</h2>
+        <p class="text-slate-600 mb-4">Flowora uses Tailwind CSS v4. The primary brand color is established using Tailwind's default `indigo` color palette classes.</p>
+        
+        <p class="text-slate-600 mb-4">To change the brand color across the site (e.g., from Indigo to Emerald), you simply need to run a Find and Replace in your code editor:</p>
+        
+        <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-xl mb-4 text-sm text-indigo-900">
+          <strong>Find:</strong> <code>indigo-</code> <br>
+          <strong>Replace with:</strong> <code>emerald-</code> (or blue-, rose-, violet-, etc.)
+        </div>
+        
+        <p class="text-slate-600">Tailwind v4 handles all the CSS variable mapping instantly via the CDN. No CSS compilation is required!</p>
+      </section>
+
+      <!-- 10. Changing Typography -->
+      <section id="changing-typography" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">10. Changing Typography</h2>
+        <p class="text-slate-600 mb-4">The template uses <strong>Inter</strong> for body text and <strong>Manrope</strong> for headings. These are configured via the `&lt;style type="text/tailwindcss"&gt;` block in the `&lt;head&gt;` of each HTML file.</p>
+        
+        <pre class="bg-slate-900 text-slate-300 p-4 rounded-xl text-sm font-mono mb-6">
+&lt;!-- 1. Load the new font from Google Fonts --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet"&gt;
+
+&lt;!-- 2. Update the Tailwind theme configuration --&gt;
+&lt;style type="text/tailwindcss"&gt;
+  @theme {
+    /* Replace Manrope with Outfit */
+    --font-heading: "Outfit", sans-serif;
+  }
+&lt;/style&gt;</pre>
+      </section>
+
+      <!-- 11. Changing Images -->
+      <section id="changing-images" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">11. Changing Images</h2>
+        <p class="text-slate-600 mb-4">All images are located in the <code>assets/images/</code> folder. To replace an image:</p>
+        
+        <ol class="list-decimal pl-6 space-y-2 text-slate-600 mb-4">
+          <li>Add your new image to the <code>assets/images/</code> directory.</li>
+          <li>Locate the `&lt;img&gt;` tag in the HTML file.</li>
+          <li>Update the `src` attribute to point to your new image.</li>
+        </ol>
+
+        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm text-amber-800">
+          <strong>Tip:</strong> For optimal performance, always compress your images (using tools like TinyPNG) and use modern formats like `.webp` where possible.
+        </div>
+      </section>
+
+      <!-- 12. Navigation and Menu -->
+      <section id="navigation" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">12. Navigation and Menu</h2>
+        <p class="text-slate-600 mb-4">The header navigation is located inside the <code>&lt;header&gt;</code> tag near the top of the HTML files. It uses ID anchor links (like `#features`) to scroll down the homepage.</p>
+        
+        <h3 class="font-bold text-slate-900 mb-2">To add a new menu item:</h3>
+        <pre class="bg-slate-900 text-slate-300 p-4 rounded-xl text-sm font-mono mb-6">
+&lt;!-- Inside the &lt;nav&gt; tag --&gt;
+&lt;a href="index.html#new-section" class="hover:text-indigo-600 dark:hover:text-white transition-colors"&gt;New Item&lt;/a&gt;</pre>
+      </section>
+
+      <!-- 13. Homepage Sections -->
+      <section id="homepage" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">13. Homepage Sections</h2>
+        <p class="text-slate-600 mb-6">The <code>index.html</code> page is divided into clearly commented sections. Search for the HTML comments (e.g., <code>&lt;!-- ================= STEP 2: HERO ================= --&gt;</code>) to find exactly where to edit.</p>
+        
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-bold text-slate-900">Hero Section</h3>
+            <p class="text-slate-600 text-sm">Contains the main headline, description, primary call-to-actions, and the dashboard mockup image.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Trusted Companies (Logos)</h3>
+            <p class="text-slate-600 text-sm">A marquee/grid of client logos. Replace the Lucide icons or SVG paths with your own partner logos.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Features</h3>
+            <p class="text-slate-600 text-sm">A CSS Grid layout of feature cards. Each card contains an icon, title, and description. They feature GSAP scroll entrance animations (`gsap-feature-left`, etc.).</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Pricing</h3>
+            <p class="text-slate-600 text-sm">Contains the Monthly/Yearly toggle switch. Prices are updated automatically via JavaScript based on the <code>data-monthly</code> and <code>data-yearly</code> attributes on the price elements.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Testimonials</h3>
+            <p class="text-slate-600 text-sm">A CSS masonry-style layout of customer reviews.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">FAQ (Accordion)</h3>
+            <p class="text-slate-600 text-sm">Built using standard HTML5 <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> tags. No JavaScript required! Just edit the text inside.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900">Footer</h3>
+            <p class="text-slate-600 text-sm">Contains the site map links, social media icons, and copyright text.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14. Blog System -->
+      <section id="blog" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">14. Blog System</h2>
+        <p class="text-slate-600 mb-4">Flowora includes a static blog interface. The homepage features a Blog grid. Clicking "Read Article" takes you to `blog-detail.html`.</p>
+        
+        <h3 class="font-bold text-slate-900 mb-2 mt-6">How it works (Demo Setup)</h3>
+        <p class="text-slate-600 text-sm mb-4">To demonstrate dynamic-like loading without a backend, the template uses a simple JavaScript file: <code>assets/js/blog-data.js</code>.</p>
+        
+        <ul class="list-disc pl-6 space-y-2 text-sm text-slate-600 mb-6">
+          <li><code>blog-data.js</code> contains a JSON array of blog articles.</li>
+          <li>When you click a link like <code>blog-detail.html?id=1</code>, the script on `blog-detail.html` reads the ID from the URL.</li>
+          <li>It fetches the matching article from `blog-data.js` and injects the title, image, and HTML content into the page.</li>
+        </ul>
+
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+          <p class="text-blue-800 text-sm font-medium"><strong>For Production:</strong> If you are integrating this into a CMS (like WordPress) or a framework (Next.js), you will remove `blog-data.js` and render the `blog-detail.html` structure directly from your database using your chosen server language.</p>
+        </div>
+      </section>
+
+      <!-- 15. Contact Page -->
+      <section id="contact" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">15. Contact Section</h2>
+        <p class="text-slate-600 mb-4">The homepage contains a Contact form section (`index.html#contact`).</p>
+        
+        <p class="text-slate-600 text-sm mb-4">The form's <code>action</code> attribute points to <code>php/contact.php</code>. This is a very basic PHP mailer script provided as a starter.</p>
+        
+        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm text-amber-800 mb-6">
+          <strong>Important:</strong> The contact form is frontend-only. It will only send actual emails if your hosting server supports PHP and the `mail()` function is configured correctly by your hosting provider. For robust production use, we recommend connecting the form to a service like Formspree or EmailJS.
+        </div>
+      </section>
+
+      <!-- 16. JavaScript -->
+      <section id="javascript" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">16. JavaScript Features</h2>
+        <p class="text-slate-600 mb-4">All custom interactions are written in vanilla JavaScript in <code>assets/js/main.js</code>.</p>
+        
+        <ul class="list-disc pl-6 space-y-3 text-sm text-slate-600">
+          <li><strong>Theme Toggle:</strong> Saves user preference (Light/Dark) to `localStorage` and toggles the `.dark` class on the `<html>` element.</li>
+          <li><strong>Lenis Smooth Scroll:</strong> Initializes `@studio-freight/lenis` for buttery smooth scrolling.</li>
+          <li><strong>GSAP ScrollTrigger:</strong> Locates classes like `.gsap-fade-up`, `.gsap-feature-left`, and `.gsap-typing-heading` to trigger high-performance entrance animations as you scroll down the page.</li>
+          <li><strong>Pricing Toggle:</strong> Swaps out text content based on HTML data-attributes when the billing switch is clicked.</li>
+        </ul>
+      </section>
+
+      <!-- 17. CSS / Tailwind -->
+      <section id="css" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">17. CSS & Tailwind configuration</h2>
+        
+        <p class="text-slate-600 mb-4">Instead of a massive external `style.css` file, Flowora utilizes the <strong>Tailwind CSS v4 CDN</strong> for maximum flexibility. The styling is applied directly via utility classes in the HTML.</p>
+        
+        <h3 class="font-bold text-slate-900 mb-2 mt-6">Customizing Tailwind</h3>
+        <p class="text-slate-600 text-sm mb-3">You will find a <code>&lt;style type="text/tailwindcss"&gt;</code> block in the `head` of every file. Here you can override Tailwind's default theme (like fonts or colors) without needing a build step!</p>
+        
+        <h3 class="font-bold text-slate-900 mb-2 mt-6">assets/css/main.css</h3>
+        <p class="text-slate-600 text-sm mb-3">We provide a small `main.css` file for essential custom overrides, such as initial states for GSAP animations (e.g., hiding elements before they animate in) and custom scrollbar styling.</p>
+      </section>
+
+      <!-- 18. Responsive Design -->
+      <section id="responsive" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">18. Responsive Design</h2>
+        <p class="text-slate-600 mb-4">The template is fully responsive and mobile-first, supporting:</p>
+        <ul class="list-disc pl-6 space-y-1 text-sm text-slate-600 mb-4">
+          <li>Mobile devices (Portrait & Landscape)</li>
+          <li>Tablets (iPad, etc.)</li>
+          <li>Laptops & Desktop Monitors</li>
+        </ul>
+        <p class="text-slate-600 text-sm">We use Tailwind's default breakpoint prefixes (`sm:`, `md:`, `lg:`, `xl:`) in the HTML classes to control layouts across different screen sizes.</p>
+      </section>
+
+      <!-- 19. Browser Compatibility -->
+      <section id="browser-compatibility" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">19. Browser Compatibility</h2>
+        <p class="text-slate-600 mb-4">Flowora is rigorously tested and optimized for the latest versions of modern web browsers:</p>
+        <ul class="grid grid-cols-2 gap-4 text-sm text-slate-600">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Google Chrome</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Mozilla Firefox</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Microsoft Edge</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Apple Safari</li>
+        </ul>
+      </section>
+
+      <!-- 20. Plugins & Credits -->
+      <section id="plugins-credits" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">20. Third-Party Plugins & Credits</h2>
+        <div class="overflow-x-auto rounded-xl border border-slate-200">
+          <table class="w-full text-left border-collapse doc-table">
+            <thead>
+              <tr class="text-sm text-slate-700 border-b border-slate-200">
+                <th class="py-3 px-4 font-bold">Resource</th>
+                <th class="py-3 px-4 font-bold">Purpose</th>
+                <th class="py-3 px-4 font-bold">License</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm text-slate-600 divide-y divide-slate-200">
+              <tr>
+                <td class="py-3 px-4 font-medium text-indigo-600"><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS v4</a></td>
+                <td class="py-3 px-4">CSS Framework via CDN</td>
+                <td class="py-3 px-4 text-xs">MIT</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-indigo-600"><a href="https://lucide.dev/" target="_blank">Lucide Icons</a></td>
+                <td class="py-3 px-4">SVG Icon Library</td>
+                <td class="py-3 px-4 text-xs">ISC</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-indigo-600"><a href="https://gsap.com/" target="_blank">GSAP</a></td>
+                <td class="py-3 px-4">ScrollTrigger Entrance Animations</td>
+                <td class="py-3 px-4 text-xs">Standard "No Charge" License</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-indigo-600"><a href="https://github.com/darkroomengineering/lenis" target="_blank">Lenis</a></td>
+                <td class="py-3 px-4">Smooth Scrolling Library</td>
+                <td class="py-3 px-4 text-xs">MIT</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-medium text-indigo-600"><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></td>
+                <td class="py-3 px-4">Typography (Inter & Manrope)</td>
+                <td class="py-3 px-4 text-xs">OFL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 21. SEO -->
+      <section id="seo" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">21. SEO Setup</h2>
+        <p class="text-slate-600 mb-4">Flowora is built with semantic HTML tags (<code>&lt;header&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;</code>) for excellent baseline SEO. To customize it for your brand, edit the meta tags in the `<head>` of every HTML file.</p>
+        
+        <pre class="bg-slate-900 text-slate-300 p-4 rounded-xl text-sm font-mono">
+&lt;title&gt;Your AI SaaS Product Name&lt;/title&gt;
+&lt;meta name="description" content="A powerful description of your AI tool to appear in Google search results."&gt;</pre>
+      </section>
+
+      <!-- 22. Troubleshooting -->
+      <section id="troubleshooting" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">22. Troubleshooting</h2>
+        
+        <div class="space-y-6">
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-2">CSS changes are not showing</h4>
+            <p class="text-sm text-slate-600">Ensure your internet connection is active, as Tailwind is loaded via CDN. If you modified `assets/css/main.css`, clear your browser cache (Ctrl+F5) to force a reload.</p>
+          </div>
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-2">Animations aren't working locally</h4>
+            <p class="text-sm text-slate-600">Browsers often block cross-origin requests (CORS) when opening HTML files directly via `file://`. Always use a local server (like VS Code Live Server) to view the template locally.</p>
+          </div>
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 mb-2">Images are not loading</h4>
+            <p class="text-sm text-slate-600">Check the image path and filename. Ensure that your image paths are correct relative to the HTML file you are editing. Ensure case-sensitivity matches your OS.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 23. Customization Tips -->
+      <section id="customization-tips" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">23. Customization Tips</h2>
+        <p class="text-slate-600 mb-6">Want to get your site ready for launch quickly? Follow this recommended order:</p>
+        
+        <ol class="list-decimal pl-6 space-y-2 text-slate-600 text-sm">
+          <li><strong>Replace Logo:</strong> Swap the text logo with your SVG brand mark.</li>
+          <li><strong>Change Colors:</strong> Use Find & Replace to swap `indigo-` with your brand color.</li>
+          <li><strong>Change Fonts:</strong> Update the `@theme` block in the `<head>`.</li>
+          <li><strong>Update Navigation:</strong> Adjust the header anchor links.</li>
+          <li><strong>Update Homepage Content:</strong> Edit the headline and subtitle in `index.html`.</li>
+          <li><strong>Replace Images:</strong> Replace placeholder dashboard images with screenshots of your software.</li>
+          <li><strong>Update Pricing:</strong> Input your actual subscription prices.</li>
+          <li><strong>Update Testimonials:</strong> Input your customer reviews.</li>
+          <li><strong>Update Footer:</strong> Update the copyright and social links.</li>
+          <li><strong>Test Responsive Layouts:</strong> Resize your browser to ensure your content looks great on mobile.</li>
+        </ol>
+      </section>
+
+      <!-- 24. Changelog -->
+      <section id="changelog" class="doc-section mb-16">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">24. Changelog</h2>
+        <div class="border-l-2 border-indigo-200 pl-6 relative">
+          <div class="absolute w-3 h-3 bg-indigo-600 rounded-full -left-[7px] top-1.5"></div>
+          <h3 class="font-bold text-slate-900">Version 1.0.0 <span class="text-xs font-normal text-slate-500 ml-2">Initial Release</span></h3>
+          <ul class="list-disc pl-5 mt-3 space-y-1 text-sm text-slate-600">
+            <li>Initial release</li>
+            <li>Added responsive homepage</li>
+            <li>Added 404 error page</li>
+            <li>Added blog detail page</li>
+            <li>Added responsive navigation</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 25. Support -->
+      <section id="support" class="doc-section">
+        <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4">25. Support</h2>
+        <p class="text-slate-600 mb-4">If you encounter any issues not covered in this documentation, we are here to help!</p>
+        
+        <div class="bg-indigo-600 text-white p-6 rounded-2xl shadow-lg mt-6 text-center">
+          <h3 class="text-xl font-bold mb-2">Need Technical Assistance?</h3>
+          <p class="text-indigo-100 text-sm mb-6 max-w-md mx-auto">Please reach out through our official TemplateMonster support portal. We strive to answer all inquiries within 24-48 hours.</p>
+          
+          <div class="text-left bg-indigo-700/50 p-4 rounded-xl inline-block w-full max-w-md">
+            <p class="text-sm font-semibold mb-2 text-indigo-50">Before contacting support, provide:</p>
+            <ul class="list-disc pl-5 text-sm text-indigo-200 space-y-1">
+              <li>Template Version (e.g., v1.0.0)</li>
+              <li>Browser & Operating System</li>
+              <li>A screenshot of the issue</li>
+              <li>A description of the problem</li>
+              <li>Steps to reproduce</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="hide fixed bottom-8 right-8 w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow-lg transition-colors z-50">
+    <i data-lucide="chevron-up" class="w-6 h-6"></i>
+  </a>
+
+  <!-- Documentation Scripts -->
+  <script src="assets/js/documentation.js"></script>
+</body>
+</html>

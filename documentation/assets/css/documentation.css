@@ -1,0 +1,57 @@
+/* Custom overrides for Flowora Template Documentation */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.doc-section {
+  scroll-margin-top: 6rem;
+}
+
+/* Sidebar navigation styling */
+.nav-link.active {
+  color: #4f46e5;
+  font-weight: 600;
+  border-left-color: #4f46e5;
+  background-color: #f5f3ff;
+}
+
+.dark .nav-link.active {
+  color: #818cf8;
+  border-left-color: #818cf8;
+  background-color: rgba(79, 70, 229, 0.1);
+}
+
+/* Code blocks */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Table styling */
+.doc-table th {
+  background-color: #f8fafc;
+}
+.dark .doc-table th {
+  background-color: #1e293b;
+}
+
+/* Back to Top */
+#back-to-top {
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#back-to-top.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
