@@ -69,4 +69,45 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.classList.toggle("dark");
     });
   }
+
+  // Sticky Purchase Bar Controller
+  const purchaseBar = document.getElementById('sticky-purchase-bar');
+  const dismissBtn = document.getElementById('dismiss-purchase-bar');
+  const reopenBtn = document.getElementById('reopen-purchase-bar');
+
+  if (purchaseBar && dismissBtn) {
+    if (sessionStorage.getItem('flowora_purchase_bar_closed') === 'true') {
+      purchaseBar.classList.add('hidden');
+      if (reopenBtn) {
+        reopenBtn.classList.remove('hidden');
+        reopenBtn.classList.add('inline-flex');
+      }
+    }
+
+    dismissBtn.addEventListener('click', () => {
+      purchaseBar.classList.add('opacity-0', 'translate-y-4');
+      setTimeout(() => {
+        purchaseBar.classList.add('hidden');
+        if (reopenBtn) {
+          reopenBtn.classList.remove('hidden');
+          reopenBtn.classList.add('inline-flex');
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      }, 300);
+      sessionStorage.setItem('flowora_purchase_bar_closed', 'true');
+    });
+
+    if (reopenBtn) {
+      reopenBtn.addEventListener('click', () => {
+        reopenBtn.classList.add('hidden');
+        reopenBtn.classList.remove('inline-flex');
+        purchaseBar.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          purchaseBar.classList.remove('opacity-0', 'translate-y-4');
+        });
+        sessionStorage.removeItem('flowora_purchase_bar_closed');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      });
+    }
+  }
 });
